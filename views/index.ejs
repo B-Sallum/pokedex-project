@@ -6,13 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/style.css">
-    <title>Pokedex</title>
+    <title>Pokédex</title>
 </head>
 
 <body>
-    <p>
-        Just Hello
-    </p>
+    <section class="pokeList">
+        <% for (uuu=0; uuu < pokedex.length; uuu++) { %>
+            <div class="pokemon">
+                <%= pokedex[uuu].number %>
+                    <%= pokedex[uuu].poke %>
+                        <%= pokedex[uuu].type %>
+                            <img src="<%= pokedex[uuu].image %>" alt="<%= pokedex.alt %>">
+            </div>
+            <% } %>
+    </section>
+
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
 
