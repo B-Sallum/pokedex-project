@@ -10,8 +10,8 @@ app.use(express.urlencoded())
 
 var pokedex = [
     {
-        number: 001,
         poke: "Bulbasaur",
+        number: 001,
         type1: "Grass",
         type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
@@ -23,8 +23,8 @@ var pokedex = [
         abilities: "Overgrow"
     },
     {
-        number: 002,
         poke: "Ivysaur",
+        number: 002,
         type1: "Grass",
         type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
@@ -36,8 +36,8 @@ var pokedex = [
         abilities: "Overgrow"
     },
     {
-        number: 003,
         poke: "Venusaur",
+        number: 003,
         type1: "Grass",
         type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
@@ -58,8 +58,9 @@ app.get("/new", (req, res) => {
     res.render("new")
 })
 
-app.get("/details/:pokeIndex", (req, res) => {
-    const pokeNumber = req.params.pokeIndex
+app.get("/details/:pokeName", (req, res) => {
+    const pokeName = req.params.pokeName
+    const pokeNumber = pokedex.findIndex((user) => user.poke === pokeName)
     const pokemons = pokedex[pokeNumber]
     res.render("details", { details: pokemons })
 })
@@ -67,8 +68,8 @@ app.get("/details/:pokeIndex", (req, res) => {
 app.post("/submit", (req, res) => {
 
     pokePush = {
-        number: req.body.number,
         poke: req.body.poke,
+        number: req.body.number,
         type1: req.body.type1,
         type2: req.body.type2,
         image: req.body.image,

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -9,36 +9,31 @@
     <title>New Pokémon</title>
 </head>
 
-<style>
-    * {
-        text-align: center;
-    }
-
-</style>
-
 <body>
     <div class="bg"></div> 
     <header>
-
+        <div>
+            <%-include('nav.ejs')%>
+        </div>      
     </header>
     <h1>Insert New Pokémon</h1>
     <section class="form">
         <form action="/submit" method="POST">
             <div>
                 <label for="number"></label>
-                <input type="number" name="number" id="number" placeholder="Input number" required>
+                <input type="number" name="number" id="number" placeholder="Number" required>
             </div>
             <div>
                 <label for="poke"></label>
-                <input type="text" name="poke" id="poke" placeholder="Input name" required>
+                <input type="text" name="poke" id="poke" placeholder="Pokémon Name" required>
             </div>
             <div>
                 <label for="type1"></label>
-                <input type="text" name="type1" id="type1" placeholder="Input type 1">
+                <input type="text" name="type1" id="type1" placeholder="Type 1">
             </div>
             <div>
                 <label for="type2"></label>
-                <input type="text" name="type2" id="type2" placeholder="Input type 2 (if there is any)">
+                <input type="text" name="type2" id="type2" placeholder="Type 2 (if there is any)">
             </div>
             <div>
                 <label for="image"></label>
@@ -46,29 +41,29 @@
             </div>
             <div>
                 <label for="description"></label>
-                <input type="text" name="description" id="description" placeholder="Input description">
+                <input type="text" name="description" id="description" placeholder="Description">
             </div>
             <div>
                 <label for="height"></label>
-                <input type="text" name="height" id="height" placeholder="Input height">
+                <input type="text" name="height" id="height" placeholder="Height">
             </div>
             <div>
                 <label for="weight"></label>
-                <input type="text" name="weight" id="weight" placeholder="Input weight">
+                <input type="text" name="weight" id="weight" placeholder="Weight">
             </div>
             <div>
                 <label for="category"></label>
-                <input type="text" name="category" id="category" placeholder="Input category">
+                <input type="text" name="category" id="category" placeholder="Category">
             </div>
             <div>
                 <label for="skill"></label>
-                <input type="text" name="skill" id="skill" placeholder="Input skill">
+                <input type="text" name="skill" id="skill" placeholder="Skill">
             </div>
             <button type="submit">Add Pokémon</button>
         </form>
     </section>
     <footer>
-        <h2><a href="/">Back to Pokédex</a> </h2>
+
     </footer>    
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
