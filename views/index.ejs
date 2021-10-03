@@ -8,19 +8,30 @@
     <link rel="stylesheet" href="./css/style.css">
     <title>Pokédex</title>
 </head>
-
 <body>
-    <section class="pokeList">
-        <% for (uuu=0; uuu < pokedex.length; uuu++) { %>
-            <div class="pokemon">
-                <%= pokedex[uuu].number %>
-                    <%= pokedex[uuu].poke %>
-                        <%= pokedex[uuu].type %>
-                            <img src="<%= pokedex[uuu].image %>" alt="<%= pokedex.alt %>">
+    <div class="bg"></div>  
+    <header>
+        <h1>Pokédex</h1>
+    </header>
+    <main class="pokeList">
+        <% pokedex.forEach(item => { %>
+            <a href="/details/<%= pokedex.indexOf(item) %>">
+            <div class="thumbPoke">
+                <%= item.number %>
+                <%= item.poke %>
+                <img class="imgPoke" src="<%= item.image %>" alt="<%= item.alt %>">
+                <%= item.type1 %>
+                <% if (item.type2 !==null ) { %>
+                        <%= item.type2 %>
+                <% } %>
             </div>
-            <% } %>
-    </section>
-
+            </a>                
+        <% }) %>
+    </main>
+    <footer>
+        <h4>Click Pokémon Card for Details</h4>
+        <a href="/new"><button>Add</button></a>
+    </footer>   
     <script type="text/javascript" src="./js/script.js"></script>
 </body>
 

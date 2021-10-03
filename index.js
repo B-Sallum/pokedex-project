@@ -1,34 +1,52 @@
 const express = require("express")
-const { url } = require("inspector")
 const path = require("path")
 const app = express()
 const port = process.env.PORT || 3000
 
 app.set("view engine", "ejs")
+app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded())
 
 var pokedex = [
     {
-        number: 1,
+        number: 001,
         poke: "Bulbasaur",
-        type: ["Grass", "Poison"],
+        type1: "Grass",
+        type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/001.png",
-        alt: "Bulbasaur"
+        alt: "Draw of Bulbasaur: There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
+        description: "There is a plant seed on its back right from the day this Pokémon is born. The seed slowly grows larger.",
+        height: 0.7,
+        weight: 6.9,
+        category: "Seed",
+        abilities: "Overgrow"
     },
     {
-        number: 2,
+        number: 002,
         poke: "Ivysaur",
-        type: ["Grass", "Poison"],
+        type1: "Grass",
+        type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/002.png",
-        alt: "Ivysaur"
+        alt: "Drawing of Ivysaur: When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.",
+        description: "When the bulb on its back grows large, it appears to lose the ability to stand on its hind legs.",
+        height: 1,
+        weight: 13,
+        category: "Seed",
+        abilities: "Overgrow"
     },
     {
-        number: 3,
+        number: 003,
         poke: "Venusaur",
-        type: ["Grass", "Poison"],
+        type1: "Grass",
+        type2: "Poison",
         image: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/003.png",
-        alt: "Venusaur"
+        alt: "Drawing of Venusaur: Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        description: "Its plant blooms when it is absorbing solar energy. It stays on the move to seek sunlight.",
+        height: 2,
+        weight: 100,
+        category: "Seed",
+        abilities: "Overgrow"
     }
 ]
 
@@ -40,26 +58,19 @@ app.get("/new", (req, res) => {
     res.render("new")
 })
 
-app.get("/details", (req, res) => {
-    res.render("details")
+app.get("/details/:pokeIndex", (req, res) => {
+    const pokeNumber = req.params.pokeIndex
+    const pokemons = pokedex[pokeNumber]
+    res.render("details", { details: pokemons })
 })
 
 app.post("/submit", (req, res) => {
-    // let pokePush = { number: req.body.number, name: req.body.name,  }
-    // var { number, poke, type, image, description, height, weight, category, skill } = req.body
-    // number = req.body.number
-    // poke = req.body.poke
-    // type = req.body.type
-    // image = req.body.image
-    // description = req.body.description
-    // height = req.body.height
-    // weight = req.body.weight
-    // category = req.body.category
-    // skill = req.body.skill
+
     pokePush = {
         number: req.body.number,
         poke: req.body.poke,
-        type: req.body.type,
+        type1: req.body.type1,
+        type2: req.body.type2,
         image: req.body.image,
         description: req.body.description,
         height: req.body.height,
