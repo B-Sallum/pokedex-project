@@ -1,10 +1,10 @@
 const express = require("express")
 const path = require("path")
+
 const app = express()
 const port = process.env.PORT || 3000
 
 app.set("view engine", "ejs")
-app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded())
 
@@ -50,13 +50,13 @@ const pokedex = [
     }
 ]
 
-var info = ""
+let message = ""
 
 app.get("/", (req, res) => {
     setTimeout(() => {
-        info = ""
-    }, 500)
-    res.render("index", { pokedex, info })
+        message = ""
+    }, 1000)
+    res.render("index", { pokedex, message })
 })
 
 app.get("/new", (req, res) => {
@@ -71,7 +71,6 @@ app.get("/details/:pokeName", (req, res) => {
 })
 
 app.post("/submit", (req, res) => {
-
     pokePush = {
         poke: req.body.poke,
         number: req.body.number,
@@ -85,7 +84,7 @@ app.post("/submit", (req, res) => {
         skill: req.body.skill
     }
     pokedex.push(pokePush)
-    info = "Successfully registered pokemon"
+    message = "Successfully registered pokemon"
     res.redirect("/")
 })
 
