@@ -8,7 +8,7 @@ app.set('views', __dirname + '/views');
 app.use(express.static(path.join(__dirname, "public")))
 app.use(express.urlencoded())
 
-var pokedex = [
+const pokedex = [
     {
         poke: "Bulbasaur",
         number: 001,
@@ -50,8 +50,13 @@ var pokedex = [
     }
 ]
 
+var info = ""
+
 app.get("/", (req, res) => {
-    res.render("index", { pokedex })
+    setTimeout(() => {
+        info = ""
+    }, 500)
+    res.render("index", { pokedex, info })
 })
 
 app.get("/new", (req, res) => {
@@ -60,7 +65,7 @@ app.get("/new", (req, res) => {
 
 app.get("/details/:pokeName", (req, res) => {
     const pokeName = req.params.pokeName
-    const pokeNumber = pokedex.findIndex((user) => user.poke === pokeName)
+    const pokeNumber = pokedex.findIndex((name) => name.poke === pokeName)
     const pokemons = pokedex[pokeNumber]
     res.render("details", { details: pokemons })
 })
@@ -80,6 +85,7 @@ app.post("/submit", (req, res) => {
         skill: req.body.skill
     }
     pokedex.push(pokePush)
+    info = "Successfully registered pokemon"
     res.redirect("/")
 })
 

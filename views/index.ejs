@@ -35,6 +35,11 @@
             </a>                
         <% }) %>
     </main>
+    <% if (info != "") {  %>
+        <section id="info">
+            <p><%= info %></p>
+        </section>
+    <% }  %>
     <footer>
        <div>
            <%- include('addFooter.ejs') %>
