@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Display&display=swap" rel="stylesheet">
+    
     <title><%= details.poke %> Detais</title>
 </head>
 <style>
@@ -24,9 +25,7 @@
     .bg {
         background: url('https://i.pinimg.com/originals/66/79/6d/66796dc4ff0ca03f74bd8d9e3fe129b6.gif');
         background-size: cover;
-        height: max-content;
-        position: relative;
-        opacity: 0.3;
+        height: max-content;  
         position: absolute;
         z-index: -1;
         top: 0;
@@ -110,7 +109,7 @@ button:active {
                 <p>Height: <%= details.height %></p>
                 <p>Weight: <%= details.weight %></p>
                 <p>Category: <%= details.category %></p>
-                <p>Abilities: <%= details.abilities %></p>  
+                <p>Abilities: <%= details.skill %></p>  
             </div>
         </section>    
     </main>

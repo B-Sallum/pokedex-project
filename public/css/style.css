@@ -10,17 +10,15 @@ p {
 .bg {
     background: url('https://i.pinimg.com/originals/66/79/6d/66796dc4ff0ca03f74bd8d9e3fe129b6.gif');
     background-size: cover;
-    height: max-content;
-    position: relative;
-    opacity: 0.3;
+    height: max-content;  
     position: absolute;
     z-index: -1;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    height: 100%;
     width: 100%;
+    height: 100%;
 }
 
 .pokeList {
@@ -32,9 +30,9 @@ p {
 }
 
 .thumbPoke {
-    border: rgba(137, 43, 226, 0.205) solid 1px;
+    border: rgba(137, 43, 226, 0.514) solid 1px;
     border-radius: 20px;
-    background-color: rgba(255, 255, 255, 0.356);
+    background-color: rgba(255, 255, 255, 0.52);
     align-items: center;
     padding: 10px;
     max-width: 150px;
